@@ -1,6 +1,6 @@
 
 import {HeroSection} from './components/hero'
-import  {Navbar}  from './components/navbar'
+import  {Navbar}  from './components/Navbar'
 import WhyChooseUs from './components/WhyChooseUs'
 
 function App() {
