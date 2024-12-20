@@ -7,8 +7,8 @@ const navItems = [
   { label: 'Home', href: '#' },
   { label: 'About', href: '#about' },
   {label: 'Projects', href: '#'},
-  { label: 'Services', href: '#' },
-  { label: 'Contact', href: '#' },
+  { label: 'Services', href: '#services' },
+  { label: 'Contact', href: '#footer' },
 ];
 
 export const Navbar = () => {
@@ -20,7 +20,8 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <span className="font-bold text-xl text-gray-800">RKreal Co</span>
+          <img src="/rk Logo.svg" alt="Logo" className="h-10 w-auto rounded-3xl" />
+            <span className="font-bold text-xl text-gray-800">RK Realtors & Consultants</span>
           </div>
           <div className="hidden md:flex space-x-8">
 {navItems.map((item) => (

@@ -1,6 +1,9 @@
 
+import FooterComponent from './components/footer'
 import {HeroSection} from './components/hero'
 import  {Navbar}  from './components/Navbar'
+import ServiceComponent from './components/servicesSection'
+import SponsorsSection from './components/sponsersSection'
 import WhyChooseUs from './components/WhyChooseUs'
 
 function App() {
@@ -11,6 +14,10 @@ function App() {
     <Navbar />
     <HeroSection/>
     <WhyChooseUs/>
+    <SponsorsSection/>
+    <ServiceComponent/>
+    <FooterComponent/>
+    
    
   </>
   )
