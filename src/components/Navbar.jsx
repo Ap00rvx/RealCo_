@@ -16,17 +16,17 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className=" sticky bg-white shadow-md  w-full z-10 top-0">
+    <nav className=" sticky bg-[#231F20] shadow-md  w-full z-10 top-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-          <img src="/rk Logo.svg" alt="Logo" className="h-10 w-auto rounded-3xl" />
-            <span className="font-bold text-xl text-gray-800">RK Realtors & Consultants</span>
+          <img src="/rk Logo.svg" alt="Logo" className="h-12 w-auto " />
+            <span className="font-bold text-xl text-white">RK Realtors & Consultants</span>
           </div>
           <div className="hidden md:flex space-x-8">
 {navItems.map((item) => (
   <div key={item.label} className="relative group">
-    <a href={item.href} className="text-gray-600 hover:text-black font-medium">
+    <a href={item.href} className="text-gray-200 hover:text-white font-medium">
       {item.label}
     </a>
     <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-green-600 group-hover:w-3/6"></span>
