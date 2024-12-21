@@ -1,23 +1,85 @@
- export const HeroSection = () => {
+import { Menu, X } from "lucide-react";
+import { useState } from 'react';
+
+const navItems = [
+  
+  { label: 'Home', href: '#' },
+  { label: 'About', href: '#about' },
+  {label: 'Projects', href: '#'},
+  { label: 'Services', href: '#services' },
+  { label: 'Contact', href: '#footer' },
+];
+export const HeroSection = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleMenu = () => setIsOpen(!isOpen);
+  
+    // bg-[#231F20]
+     
+    
 return (
-    <section className="bg-white ">
-    <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 max-h-screen pt-10">
-        <div className="mr-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black ">Quick and hassle-free real estate solutions tailored to your needs </h1>
-            <p className="max-w-2xl mb-6 font-light  lg:mb-8 md:text-lg lg:text-xl text-black" >From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
-            <a href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
-                Get started
-                <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-            </a>
-            <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-300 focus:ring-4 focus:ring-gray-100">
-                Contact us
-            </a> 
+    <><div className="absolute bg-transparent shadow-none w-full z-10 top-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16 items-center">
+                <div className="flex items-center">
+                   
+                    <span className="font-medium text-xl text-black">RK Realtors & Consultants</span>
+                </div>
+                <div className="hidden md:flex space-x-8">
+                    {navItems.map((item) => (
+                        <div key={item.label} className="relative group">
+                            <a href={item.href} className="  md:text-black md:hover:text-green-950 lg:text-white lg:hover:text-gray-50 text-gray-200 hover:text-white font-medium">
+                                {item.label}
+                            </a>
+                            <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-green-600 group-hover:w-3/6"></span>
+                            <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-green-600 group-hover:w-3/6"></span>
+                        </div>
+                    ))}
+                </div>
+                <div className="md:hidden">
+                    <button
+                        onClick={toggleMenu}
+                        className="text-gray-600 hover:text-black focus:outline-none"
+                    >
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
+            </div>
         </div>
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" />
-        </div>                
-    </div>
-</section>
+        {isOpen && (
+            <div className="md:hidden bg-white shadow-md">
+                <div className="px-4 pt-4 pb-2 space-y-2">
+                    {navItems.map((item) => (
+                        <a
+                            key={item.label}
+                            href={item.href}
+                            className="block text-gray-600 hover:text-black font-medium"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                </div>
+            </div>
+        )}
+    </div><section className="bg-white">
+            <div className=" grid max-w-screen-xl px-1 mx-auto lg:gap-4 xl:gap-0  lg:grid-cols-12 max-h-screen lg:h-screen lg:py-0 md:pt-10 min-[300px]:pt-12">
+                <div className="mr-auto place-self-center lg:col-span-6 p-4 sm:pt-14">
+                    <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black ">Quick and hassle-free real estate solutions tailored to your needs </h1>
+                    <p className="max-w-2xl mb-6 font-light  lg:mb-8 md:text-lg lg:text-xl text-black">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
+                    <p className="max-w-2xl mb-6 font-light  lg:mb-8 md:text-lg lg:text-xl text-black">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
+                    <a href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
+                        Get started
+                        <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    </a>
+                    <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-300 duration-150 focus:ring-4 focus:ring-gray-100">
+                        Contact us
+                    </a>
+                </div>
+                <div className="hidden lg:mt-0 lg:col-span-6 lg:flex h-full w-auto">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-cityscape-hd-wallpaper-preview.jpg" alt="mockup" />
+                </div>
+            </div>
+        </section></>
 );
 };
 

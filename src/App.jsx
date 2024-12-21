@@ -1,21 +1,20 @@
 
 import FooterComponent from './components/footer'
 import {HeroSection} from './components/hero'
-import  {Navbar}  from './components/Navbar'
-import ServiceComponent from './components/servicesSection'
-import SponsorsSection from './components/sponsersSection'
+import OurClients from './components/ourClients'
 import WhyChooseUs from './components/WhyChooseUs'
+import WorkDisplaySection from './components/workDisplaySection'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <HeroSection/>
     <WhyChooseUs/>
-    <SponsorsSection/>
-    <ServiceComponent/>
+    <OurClients/>
+    <WorkDisplaySection />
     <FooterComponent/>
     
    

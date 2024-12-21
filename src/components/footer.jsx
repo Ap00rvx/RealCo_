@@ -26,11 +26,10 @@ function FooterComponent() {
       <div className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
         <div className="col-span-2">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Get the latest news!</h2>
+            <h2 className="text-2xl font-bold text-gray-900">RK Realtors & Consultants </h2>
 
             <p className="mt-4 text-gray-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
-              molestias.
+            Your one-stop solution for all your business needs.   
             </p>
           </div>
         </div>
@@ -63,9 +62,7 @@ function FooterComponent() {
           <p className="font-medium text-gray-900">Services</p>
 
           <ul className="mt-6 space-y-4 text-sm">
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
-            </li>
+            
 
             <li>
               <a href="#" className="text-gray-700 transition hover:opacity-75"> Company Review </a>
