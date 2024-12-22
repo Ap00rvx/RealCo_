@@ -36,9 +36,9 @@ export default function OurClients() {
   {clientData.map((client, index) => (
     <motion.div variants={
         fadeIn('up', 0.2)
-        } initial="hidden" whileInView={"show"}viewport={{once:false,amount:0.1 }}
+        } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}
       key={client.id}
-      className={`max-w-sm bg-white border border-gray-200 rounded-lg shadow mx-auto hover:shadow-lg hover:scale-105 transform transition-transform ${index % 3 === 0 ? 'col-span-1 mx-auto' : ''}`}
+      className={`max-w-sm bg-white border border-gray-200 rounded-lg shadow mx-auto hover:shadow-lg hover:scale-110 duration-150`}
     >
       <a href="#">
         <img
