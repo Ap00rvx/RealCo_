@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from 'react';
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 const navItems = [
   
   { label: 'Home', href: '#' },
@@ -24,7 +25,7 @@ return (
                    
                     <span className="font-medium text-xl text-black">RK Realtors & Consultants</span>
                 </div>
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden md:flex min-[1100px]:space-x-16  space-x-8 pr-4">
                     {navItems.map((item) => (
                         <div key={item.label} className="relative group">
                             <a href={item.href} className="  md:text-black md:hover:text-green-950 lg:text-white lg:hover:text-gray-50 text-gray-200 hover:text-white font-medium">
@@ -63,17 +64,26 @@ return (
         )}
     </div><section className="bg-white">
             <div className=" grid max-w-screen-xl px-1 mx-auto lg:gap-4 xl:gap-0  lg:grid-cols-12 max-h-screen lg:h-screen lg:py-0 md:pt-10 min-[300px]:pt-12">
-                <div className="mr-auto place-self-center lg:col-span-6 p-4 sm:pt-14">
-                    <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black ">Quick and hassle-free real estate solutions tailored to your needs </h1>
-                    <p className="max-w-2xl mb-6 font-light  lg:mb-8 md:text-lg lg:text-xl text-black">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
-                    <p className="max-w-2xl mb-6 font-light  lg:mb-8 md:text-lg lg:text-xl text-black">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
-                    <a href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
+                <div
+                className="mr-auto place-self-center lg:col-span-6 p-4 sm:pt-14">
+                    <motion.h1  variants={
+                    fadeIn('up', 0.2)
+                    } initial="hidden" whileInView={"show"}viewport={{once:false,amount:0.1 }}className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black ">Quick and hassle-free real estate solutions tailored to your needs </motion.h1>
+                    <motion.p  variants={
+                    fadeIn('up', 0.4)
+                    } initial="hidden" whileInView={"show"}viewport={{once:false,amount:0.1 }}className="max-w-2xl mb-6 font-light  lg:mb-8 md:text-lg lg:text-xl text-black">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</motion.p>
+                
+                    <motion.a  variants={
+                    fadeIn('up', 0.4)
+                    } initial="hidden" whileInView={"show"}viewport={{once:false,amount:0.1 }} href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
                         Get started
                         <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                    </a>
-                    <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-300 duration-150 focus:ring-4 focus:ring-gray-100">
+                    </motion.a>
+                    <motion.a  variants={
+                    fadeIn('up', 0.4)
+                    } initial="hidden" whileInView={"show"}viewport={{once:false,amount:0.1 }}href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-300 duration-150 focus:ring-4 focus:ring-gray-100">
                         Contact us
-                    </a>
+                    </motion.a>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-6 lg:flex h-full w-auto">
                     <img src="https://c4.wallpaperflare.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-cityscape-hd-wallpaper-preview.jpg" alt="mockup" />
