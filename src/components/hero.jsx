@@ -34,7 +34,7 @@ export const HeroSection = () => {
             setTimeout(() => {
                 setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
                 setFadeDirection('left'); 
-            }, 300); // Wait for the old image to fade out before switching
+            }, 200); // Wait for the old image to fade out before switching
         }, 7000); // Change image every 4 seconds
 
         // Clear interval when component unmounts

@@ -26,7 +26,7 @@ const Services = () => {
 
   return (
     <section className="p-8 bg-white" id="services">
-        <div className="text-black font-bold justify-center items-center flex text-3xl ">What We Offer</div>
+        <div className="text-black font-semibold justify-center items-center flex text-3xl ">What We Offer</div>
         <div className=" text-gray-500 font-normal justify-center items-center flex text-light mb-10 text-center ">Empowering you with innovative solutions, tailored to exceed your expectations!</div>
  <div className="max-w-screen-xl  px-4  justify-center items-center mx-auto">
         {
@@ -45,7 +45,7 @@ const Services = () => {
               className="object-cover w-full max-h-80 rounded-xl hidden sm:block"
             />
             <div className="w-full py-4 md:py-5 lg:px-8">
-              <p className="block antialiased font-sans text-2xl leading-relaxed text-inherit mb-10 font-semibold sm:font-bold !text-black">
+              <p className="block antialiased font-sans text-2xl leading-relaxed text-inherit mb-10 font-normal sm:font-bold !text-black">
                 {service.title}.
               </p>
               

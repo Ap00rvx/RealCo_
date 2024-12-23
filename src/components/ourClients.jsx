@@ -26,7 +26,7 @@ export default function OurClients() {
   return (
     <>
     <section className="bg-white"> 
-      <div className="w-full pt-10 mx-auto text-center text-gray-900 bg-white font-bold text-3xl">
+      <div className="w-full pt-10 mx-auto text-center text-gray-900 bg-white font-semibold text-3xl">
         Our Clients
       </div>
       <div className="w-full mx-auto text-center text-gray-400 bg-white font-light text-lg">
