@@ -127,7 +127,9 @@ return (
                     
                 </div>
                 </div>
-                <div className="hidden lg:mt-0 lg:col-span-6 lg:flex h-full w-auto">
+                <motion.div  variants={
+                    fadeIn('up', 0.2)
+                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}className="hidden lg:mt-0 lg:col-span-6 lg:flex h-full w-auto">
                     <div
                         className={`transition-all duration-1000 ease-in-out ${
                             fadeDirection === 'left' ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-40'
@@ -139,7 +141,7 @@ return (
                             className="object-cover w-full h-full"
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
         

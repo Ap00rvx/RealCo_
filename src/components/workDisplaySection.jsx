@@ -14,7 +14,7 @@ function WorkDisplaySection() {
             </a>
         </div>
         
-        <img className="w-full md:block hidden  max-h-96 object-cover" src="/start-a-business.jpg" alt="dashboard image" />
+        <img className="w-full md:block hidden  max-h-96 object-cover rounded-xl" src="/start-a-business.jpg" alt="dashboard image" />
     </div>
 </section>
   )
