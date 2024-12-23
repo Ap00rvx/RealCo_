@@ -35,7 +35,7 @@ const Services = () => {
     return (
       <motion.div variants={
         fadeIn('up', 0.2)
-        } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}    key={index} className={`container  grid mx-auto  mb-10 lg:grid-cols-2 items-center gap-8 ${isEven ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-white to-[#E0EDE5]  p-8 rounded-xl border border-[#E0EDE5]`} >
+        } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}    key={index} className={`container  grid mx-auto  mb-10 lg:grid-cols-2 items-center gap-8 ${isEven ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-white to-[#E0EDE5]  p-8 rounded-xl border border-[#E0EDE5] shadow-md duration-150 `} >
         {/* Conditional rendering to alternate image and text */}
         {isEven ? (
           <>
