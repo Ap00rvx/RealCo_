@@ -5,6 +5,7 @@ import OurClients from './components/ourClients'
 import WhyChooseUs from './components/WhyChooseUs'
 import WorkDisplaySection from './components/workDisplaySection'
 import Services from './components/services'
+import CounterSection from './components/statsComponent'
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -14,8 +15,11 @@ function App() {
     <HeroSection/>
     <WhyChooseUs/>
     <OurClients/>
-    <WorkDisplaySection />
+    
+    
     <Services/>
+    <CounterSection/>
+    <WorkDisplaySection />
     <FooterComponent/>
     
    
