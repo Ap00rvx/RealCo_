@@ -16,7 +16,7 @@ function FooterComponent() {
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div className="text-teal-600">
-          <img src="/rk Logo.svg" alt=" logo" className="max-h-11"/>
+          <img src="/new_logo.svg" alt=" logo" className="max-h-24  "/>
         </div>
 
         <p className="mt-4 max-w-xs text-gray-500">
@@ -159,8 +159,13 @@ function FooterComponent() {
         </div>
       </div>
     </div>
-
+    <div className="flex justify-between items-center">
     <p className="text-xs text-gray-500">&copy; 2023. RK Realtors & Consultants . All rights reserved.</p>
+    <a href="https://valenceware.com/" className="text-xs text-gray-500">Developed & maintained by Valenceware</a>
+
+    </div>
+
+    
   </div>
 </footer>
   )

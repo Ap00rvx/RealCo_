@@ -47,8 +47,9 @@ return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16 items-center">
                 <div className="flex items-center">
+                    <img src="/new_logo.svg" alt=""className=" md:max-h-24 lg:max-h-40  max-h-16 overflow-y-hidden " />
                    
-                    <span className="font-medium text-xl text-black">RK Realtors & Consultants</span>
+                    {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
                 </div>
                 <div className="hidden md:flex  min-[1200px]:space-x-16 min-[1025px]:space-x-10 min-[1100px]:space-x-12 space-x-8 pr-4">
                     {navItems.map((item) => (
