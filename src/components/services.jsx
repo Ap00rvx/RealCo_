@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = ()=>{
+    navigate('/services')
+  } 
+
+
   const services = [
     {
       title: "Start a Business",
@@ -50,9 +58,11 @@ const Services = () => {
               </p>
               
                 <p className=" font-normal text-gray-500 list-disc">{service.description}</p>
-                <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center  text-green-800 border border-green-800 rounded-lg hover:bg-green-800 hover:text-white duration-150 focus:ring-4 focus:ring-gray-100 mt-3">
+                <Link to="/services" >
+                <a href="" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center  text-green-800 border border-green-800 rounded-lg hover:bg-green-800 hover:text-white duration-150 focus:ring-4 focus:ring-gray-100 mt-3">
                        View all services
-                    </a>
+                    </a></ Link>
+                
               
             </div>
           </>
@@ -64,10 +74,11 @@ const Services = () => {
               </p>
               
               <p  className=" font-normal text-gray-500 list-disc">{service.description}</p>
-
-                <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-800 hover:text-white  duration-150 focus:ring-4 focus:ring-gray-100 mt-3">
+              <Link to="/services" >
+                <a href="" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center  text-green-800 border border-green-800 rounded-lg hover:bg-green-800 hover:text-white duration-150 focus:ring-4 focus:ring-gray-100 mt-3">
                        View all services
-                    </a>
+                    </a></ Link>
+                
               
             </div>
             <img
