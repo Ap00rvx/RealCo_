@@ -5,7 +5,8 @@ function ServicesPage() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const url = "https://real-co-server.vercel.app/api/service";
+  const base = import.meta.env.VITE_BASE_URL 
+  const url =  base +"/api/service";
   const defaultCount = 8 ; 
   useEffect(() => {
     const fetchServices = async () => {

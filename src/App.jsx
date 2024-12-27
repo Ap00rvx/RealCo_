@@ -6,6 +6,9 @@ import AdminLoginPage from "./pages/admin/adminLogin";
 import PrivateRoute from "./components/privateComponent";
 import AdminDashBoard from "./pages/admin/adminDashboard";
 function App() {
+
+  // console.log(import.meta.env.VITE_BASE_URL)
+
   return (
     <Router>
       <Routes>

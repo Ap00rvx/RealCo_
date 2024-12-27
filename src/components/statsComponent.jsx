@@ -1,18 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 const CounterSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  const counters = [
-    { label: 'Happy Clients', value: 50 },
-    { label: 'Projects Done', value: 150 },
-    { label: 'Days of Work', value: 1000 },
+  // Initial state for counters fetched from API
+  const [counters, setCounters] = useState([]);
+  const [counts, setCounts] = useState([]);
 
-  ];
+  // Fetch stats from the API
+  const getStats = async () => {
+    const url = import.meta.env.VITE_BASE_URL + '/api/stats';
+    try {
+      const response = await axios.get(url);
 
-  const [counts, setCounts] = useState(counters.map(() => 0));
+      const apiStats = response.data.stats;
+      const countersFromApi = [
+        { label: 'Happy Clients', value: apiStats.happyClients || 0 },
+        { label: 'Projects Done', value: apiStats.projects || 0 },
+        { label: 'Days of Work', value: apiStats.daysOfWork || 0 },
+      ];
 
+      setCounters(countersFromApi);
+      setCounts(countersFromApi.map(() => 0)); // Initialize counters with 0 for animation
+    } catch (error) {
+      console.error('Error fetching stats:', error);
+    }
+  };
+
+  // Observe visibility of the section
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -34,8 +51,14 @@ const CounterSection = () => {
     };
   }, []);
 
+  // Fetch stats on component mount
   useEffect(() => {
-    if (isVisible) {
+    getStats();
+  }, []);
+
+  // Animate counters when section is visible
+  useEffect(() => {
+    if (isVisible && counters.length > 0) {
       const intervalIds = counters.map((counter, index) => {
         return setInterval(() => {
           setCounts((prevCounts) => {

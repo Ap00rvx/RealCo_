@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import {useNavigate} from 'react-router-dom';
 import StatsComponent from './StatsComponent';
+import ServicesComponent from './ServicesComponent';
 // Main Component to display content based on selection
 function MainComponent() {
   const [userName, setUserName] = useState('');
@@ -22,6 +23,7 @@ function MainComponent() {
     <>
     <Nav username={userName}/>
     <StatsComponent/>
+    <ServicesComponent/>
     </>
     
       

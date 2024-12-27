@@ -18,10 +18,10 @@ function AdminLoginPage() {
       setError('Username and Password are required.');
       return;
     }
-
+    const base= import.meta.env.VITE_BASE_URL ;
     setLoading(true);
     try {
-      const response = await axios.post(`https://real-co-server.vercel.app/api/user/login`, {
+      const response = await axios.post(`${base}/api/user/login`, {
         username,
         password,
       });
