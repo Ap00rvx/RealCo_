@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function FooterComponent() {
 
@@ -12,16 +13,23 @@ function FooterComponent() {
     
 
 <footer className="bg-white">
-  <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+  <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8 ">
+    <div className="grid grid-cols-1 gap-80 lg:grid-cols-3 ">
       <div>
         <div className="text-teal-600">
           <img src="/new_logo.svg" alt=" logo" className="max-h-24  "/>
         </div>
 
         <p className="mt-4 max-w-xs text-gray-500">
-        RK Realtors & Tax Consultants provide a comprehensive solution for all your real estate and business consulting needs. 
+        B 102 Sen Nagar Santacruz East , Mumbai - 400055 
         </p>
+        <p className="mt-0 max-w-xs text-gray-500">
+        <a href="mailto:connect@rktaxrealtors.com" title="connect@rktaxrealtors.com">connect@rktaxrealtors.com</a>
+        </p>
+        <a href="tel:+917715021942" title="+91 771 502 1942" className="mt-4 max-w-xs text-gray-500">+91 771 502 1942</a><br/>
+                        <a href="tel:+919820612409" title="+91 982 061 2409"className="mt-4 max-w-xs text-gray-500">+91 982 061 2409</a>
+          <br />
+                        <a className="mt-4 max-w-xs text-gray-500">RERA License No - <b>A51800000949</b></a>
 
         <ul className="mt-8 flex gap-6">
           <li>
@@ -77,8 +85,22 @@ function FooterComponent() {
           </li>
         </ul>
       </div>
-
+      
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+      <div>
+          <p className="font-medium text-gray-900">Quick Links</p>
+
+          <ul className="mt-6 space-y-4 text-sm text-gray-500">
+        
+                        <Link to={"/"}><li><a className="text-medium" href="">Home</a></li> </Link>
+                        <Link to={"/services"}><li><a className="text-medium" href="">Services</a></li> </Link>
+                        <Link to={"/projects"}><li><a className="text-medium" href="">Projects</a></li> </Link>
+                        <Link to={"/about"}><li><a className="text-medium" href="">About us</a></li> </Link>
+                        <Link to={"/contact"}><li><a className="text-medium" href="">Contact us</a></li> </Link>
+                     
+                    </ul>
+        
+        </div>
         <div>
           <p className="font-medium text-gray-900">Services</p>
 
@@ -105,23 +127,7 @@ function FooterComponent() {
           </ul>
         </div>
 
-        <div>
-          <p className="font-medium text-gray-900">Company</p>
-
-          <ul className="mt-6 space-y-4 text-sm">
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> About </a>
-            </li>
-
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
-            </li>
-
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-            </li>
-          </ul>
-        </div>
+       
 
         <div>
           <p className="font-medium text-gray-900">Helpful Links</p>
@@ -136,30 +142,15 @@ function FooterComponent() {
           </ul>
         </div>
 
-        <div>
-          <p className="font-medium text-gray-900">Legal</p>
-
-          <ul className="mt-6 space-y-4 text-sm">
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Accessibility </a>
-            </li>
-
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
-            </li>
-
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
-            </li>
-
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Hiring Statistics </a>
-            </li>
-          </ul>
-        </div>
+        
       </div>
     </div>
     <div className="flex justify-between items-center">
+    <div>
+          {/* // terms about privacy policy */}
+          <p className="font-medium text-gray-500 text-xs cursor-pointer">Terms & Policies</p>
+
+        </div>
     <p className="text-xs text-gray-500">&copy; 2023. RK Realtors & Consultants . All rights reserved.</p>
     <a href="https://valenceware.com/" className="text-xs text-gray-500">Developed & maintained by Valenceware</a>
 

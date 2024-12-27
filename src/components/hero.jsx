@@ -47,7 +47,7 @@ return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16 items-center">
                 <div className="flex items-center">
-                    <img src="/new_logo.svg" alt=""className=" md:max-h-24 lg:max-h-40  max-h-16 overflow-y-hidden " />
+                    <img src="/new_logo_bg.png" alt=""className=" md:max-h-24 lg:max-h-56  max-h-20 overflow-y-hidden lg:mt-2 " />
                    
                     {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
                 </div>
@@ -90,7 +90,7 @@ return (
         )}
     </div>
     
-    <section className="bg-white">
+    <section className="bg-white min-[100px]:pt-14  min-[400px]:pt-0">
             <div className=" grid max-w-screen-xl px-1 mx-auto lg:gap-4 xl:gap-0  lg:grid-cols-12 max-h-screen lg:h-screen lg:py-0 md:pt-10 min-[300px]:pt-12">
                
             
@@ -121,7 +121,7 @@ return (
                 
                     <motion.a  variants={
                     fadeIn('up', 0.4)
-                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }} href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-green-300 border border-green-300 hover:bg-green-400 duration-150  hover:shadow-lg focus:ring-4 focus:ring-primary-300 ">
+                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }} href="#" className=  {` ${currentImageIndex == 0 ? "block":"hidden"}  inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-green-300 border border-green-300 hover:bg-green-400 duration-150  hover:shadow-lg focus:ring-4 focus:ring-primary-300`}>
                         Get started
                         <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </motion.a>

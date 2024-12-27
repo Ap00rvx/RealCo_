@@ -5,6 +5,7 @@ import ServicesPage from "./pages/servicesPage";
 import AdminLoginPage from "./pages/admin/adminLogin";
 import PrivateRoute from "./components/privateComponent";
 import AdminDashBoard from "./pages/admin/adminDashboard";
+import AboutUs from "./pages/AboutusPage";
 function App() {
 
   // console.log(import.meta.env.VITE_BASE_URL)
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/about" element ={<AboutUs/>}/>
 
         <Route path="/admin/login" element= {<AdminLoginPage/>}></Route>
         <Route

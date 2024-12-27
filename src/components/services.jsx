@@ -16,7 +16,7 @@ const Services = () => {
       title: "Start a Business",
       description:
         "Embark on your entrepreneurial journey with RK Realtors & Consultants! With an expert by our side, you can confidently manage your startup. Our “Start a Business” service guides you through everything, from idea conception to incorporation.  Our expert advisors ensure strategic planning while maintaining legal compliance thereby ensuring the long-term success of your venture. ",
-      image: "/home-service-01.jpg", // Replace with the actual image path
+      image: "/home-service-04.jpg", // Replace with the actual image path
     },
     {
       title: "Business Formation",
