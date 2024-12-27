@@ -9,7 +9,7 @@ function ServicesComponent() {
   const [error, setError] = React.useState(null);
   const [isPopupOpen, setPopupOpen] = React.useState(false); // State to control popup visibility
   const [imageError, setImageError] = React.useState(null); // State to handle image upload errors
-
+    const [buttonLoading, setButtonLoading] = React.useState(false); 
   const handleFileUpload = async (file) => {
     const formData = new FormData();
     formData.append('fileToUpload', file);
@@ -53,6 +53,7 @@ function ServicesComponent() {
   };
 
   const handleDelete = async (id) => {
+    setButtonLoading(true);
     try {
       const token = localStorage.getItem('authToken');
       const response = await axios.delete(url + "/delete/" + id, {
@@ -64,6 +65,7 @@ function ServicesComponent() {
       console.error(error);
       setError(error);
     }
+    setButtonLoading(false);
   };
 
   const addService = async (data) => {
@@ -97,7 +99,7 @@ function ServicesComponent() {
 
   if (loading)
     return (
-      <section className="bg-white w-screen h-screen">
+      <section className="bg-white w-screen h-auto overflow-hidden">
         <div className="container max-w-max bg-white mx-auto flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 bg-white ">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -123,7 +125,7 @@ function ServicesComponent() {
 
   return (
     <>
-      <section className="bg-white w-screen h-screen">
+      <section className="bg-white w-auto h-auto overflow-hidden">
         <div className="text-xl text-gray-600 flex justify-center">Services Section</div>
         <div className="container max-w-max bg-white mx-auto flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 bg-white ">
@@ -132,7 +134,7 @@ function ServicesComponent() {
                 key={service._id}
                 className="block max-w-md p-6 bg-white border border-gray-400 rounded-lg shadow hover:bg-gray-50 hover:shadow-lg duration-150 hover:scale-105 "
               >
-                {/* <p className="text-xs text-gray-500 flex justify-center">{service._id}</p> */}
+                <p className="text-xs text-gray-500 flex justify-center">{service._id}</p>
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center ">
                   {service.name}
                 </h5>
@@ -145,9 +147,9 @@ function ServicesComponent() {
                   </div>
                   <div
                     className="text-sm rounded-lg pt- bg-red-500 text-white py-2 px-3 cursor-pointer"
-                    onClick={() => handleDelete(service._id)}
+                    onClick={ buttonLoading ? ()=>{}     :() => handleDelete(service._id)}
                   >
-                    Delete
+                 {buttonLoading ? "Deleting..." : "Delete"}
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@ function MainComponent() {
   });
   return(
     <>
-    <Nav username={userName}/>
+    <Nav username={userName} />
     <StatsComponent/>
     <ServicesComponent/>
     </>
@@ -39,7 +39,7 @@ const Nav  =({username})=>{
     navigate('/admin/login');
   };
   return(
-    <div className="w-full bg-white border-b border-gray-200">
+    <div className="w-full bg-white border-b border-gray-200 overflow-hidden">
       <div className="flex justify-between items-center w-screen mx-auto p-4">
         <div className="text-sm font-normal  text-gray-900">RK Realtors & Consultants </div>
         <div className='flex items-center justify-center' >
