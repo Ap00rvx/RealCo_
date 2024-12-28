@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Popup from '../../utils/PopUp'; // Import your Popup component
 import axios from 'axios';
+import VisitorsComponent from './VisitosComponent';
 
 function StatsComponent() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupTitle, setPopupTitle] = useState('');
   const [stats, setStats] = useState({
-    happyClients: 0,
-    projects: 0,
-    daysOfWork: 0,
+    happyClients: "...",
+    projects: "...",
+    daysOfWork:"...",
   });
 
   // Function to fetch stats
@@ -69,9 +70,9 @@ function StatsComponent() {
 
   return (
     <>
-      <div className="w-full bg-gray-100">
-        <div className="container mx-auto p-4 justify-center items-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center mx-auto">
+      <div className=" bg-white">
+        <div className="container  p-4 justify-center items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 justify-center items-center w-auto">
             {/* Happy Clients */}
             <div className="bg-white p-4 rounded-md shadow-md">
               <div className="flex items-center justify-between">
@@ -126,6 +127,7 @@ function StatsComponent() {
               </div>
             </div>
           </div>
+          <VisitorsComponent/>
         </div>
       </div>
 

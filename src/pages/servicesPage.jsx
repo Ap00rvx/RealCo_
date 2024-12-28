@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {fadeIn} from '../variants'
+import FooterComponent from "../components/footer";
 function ServicesPage() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +27,7 @@ function ServicesPage() {
 
   if (loading) return (
     <>
-      <section className="bg-white w-screen h-screen">
+      <section className="bg-white w-screen ">
       <header className=" text-black bg-white p-6 text-center ">
         <div className="container mx-auto">
           <img 
@@ -37,7 +40,7 @@ function ServicesPage() {
         </div>
       </header>
       <div className="container max-w-max bg-white mx-auto flex  justify-center items-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 bg-white ">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 p-6 bg-white ">
         {Array.from({ length: 8 }).map((_, index) => (
           <div key={index}
           className="flex flex-col bg-neutral-300 w-72 h-64 animate-pulse rounded-xl p-4 gap-4"
@@ -61,7 +64,7 @@ function ServicesPage() {
 
   return (
     <>
-      <section className="bg-white w-screen h-screen">
+      <section className="bg-white w-auto h-auto overflow-x-hidden">
       <header className=" text-black bg-white p-6 text-center ">
         <div className="container mx-auto">
           <img 
@@ -73,21 +76,73 @@ function ServicesPage() {
           <p className="text-lg mt-2">Discover the amazing services we offer to make your life easier.</p>
         </div>
       </header>
-      <div className="container max-w-max bg-white mx-auto flex  justify-center items-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 bg-white ">
-        {services.map((service) => (
-          
-          <a key={service.id} href="#" className="block max-w-md  p-6 bg-white border border-gray-400 rounded-lg shadow hover:bg-gray-50 hover:shadow-lg duration-150 hover:scale-105"> 
-
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center ">{service.name}</h5>
-          <p className="font-light text-gray-700 text-sm text-center">{service.description}</p>
-          </a>
-
-        ))}
+      <div className="container max-w-screen bg-white mx-2  justify-center items-center">
+      <div className=" gap-4 p-6 bg-white ">
+      {services.map((service, index) => {
+  const isEven = index % 2 === 0; // Check if the index is even
+  return (
+    <motion.div
+      variants={fadeIn('up', 0.2)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+      key={index}
+      className={`container grid mx-auto mb-10 lg:grid-cols-2 items-center gap-8 ${isEven ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-white to-[#E0EDE5] p-8 rounded-xl border border-[#E0EDE5] shadow-md duration-150`}
+    >
+      {/* Conditional rendering to alternate image and text */}
+      {isEven ? (
+        <>
+          <img
+            src={service.image}
+            alt={service.name}
+            className="object-cover w-full max-h-80 rounded-xl hidden sm:block"
+          />
+          <div className="w-full py-4 md:py-5 lg:px-8">
+            <h5 className="block antialiased font-sans text-2xl leading-relaxed text-inherit mb-10 font-normal sm:font-bold !text-black">
+              {service.name}
+            </h5>
+            <p className="font-normal text-gray-500 list-disc">{service.description}</p>
+            <Link to="/services">
+              <a
+                href=""
+                className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-800 hover:text-white duration-150 focus:ring-4 focus:ring-gray-100 mt-3"
+              >
+                Contact us
+              </a>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="w-full py-4 md:py-5 lg:px-8">
+            <h5 className="block antialiased font-sans text-2xl leading-relaxed text-inherit mb-10 font-semibold sm:font-bold !text-black">
+              {service.name}
+            </h5>
+            <p className="font-normal text-gray-500 list-disc">{service.description}</p>
+            <Link to="/services">
+              <a
+                href=""
+                className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-green-800 border border-green-800 rounded-lg hover:bg-green-800 hover:text-white duration-150 focus:ring-4 focus:ring-gray-100 mt-3"
+              >
+                Contact us
+              </a>
+            </Link>
+          </div>
+          <img
+            src={service.image}
+            alt={service.name}
+            className="object-cover w-full max-h-80 rounded-xl hidden sm:block"
+          />
+        </>
+      )}
+    </motion.div>
+  );
+})}
       </div>
       </div>
       
       </section>
+      <FooterComponent/>
     </>
   );
 }
