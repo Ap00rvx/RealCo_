@@ -38,9 +38,9 @@ function AdminLoginPage() {
 
   return (
     <div className="flex h-screen w-full object-cover" style={{ backgroundImage: `url(/slider-img-02.jpg)` }}>
-      <div className="w-full max-w-xs m-auto bg-white rounded p-5 shadow-lg shadow-zinc-950">
+      <div className="w-full max-w-md m-auto bg-white rounded p-5 shadow-lg shadow-zinc-950 ">
         <header>
-          <img className="w-20 mx-auto mb-5 h-40" src="/new_logo.svg" alt="Logo" />
+          <img className="w-auto mx-auto mb-5 h-40 object-cover" src="/new_logo_bg.png" alt="Logo" />
         </header>
         <form onSubmit={handleSubmit} className="mb-4 space-y-2" method="POST">
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
@@ -72,7 +72,7 @@ function AdminLoginPage() {
           </div>
           <div>
             <button
-              className="w-full bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 mb-6 rounded"
+              className={`w-full   text-white font-bold py-2 px-4 mb-6 rounded ${loading ? 'bg-gray-400' : 'bg-green-500 hover:bg-green-700'}`}
               type="submit"
               disabled={loading}
             >

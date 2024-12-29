@@ -3,12 +3,14 @@ import { jwtDecode } from 'jwt-decode';
 import StatsComponent from './StatsComponent';
 import ServicesComponent from './ServicesComponent';
 import AdminProjectsComponent from './ProjectComponent';
+import { useNavigate } from 'react-router-dom';
+import GeneralSettings from './GeneralSettings';
 
 function MainComponent() {
   const [userName, setUserName] = useState('');
   const [selectedPage, setSelectedPage] = useState(0); // Index for selected page
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Toggle state for sidebar
-
+  
   const getUserName = () => {
     const token = localStorage.getItem('authToken');
     if (token) {
@@ -32,7 +34,7 @@ function MainComponent() {
       case 2:
         return <AdminProjectsComponent/>;
       default:
-        return <div>Select a page from the sidebar</div>;
+        return <GeneralSettings/> ; 
     }
   };
 
@@ -54,12 +56,13 @@ export default MainComponent;
 
 // Sidebar Component
 const Sidebar = ({ setSelectedPage, setIsSidebarOpen }) => {
+  const navigate = useNavigate();
   return (
-    <div className="w-48 bg-green-800 text-white flex flex-col duration-150 h-full">
-      <div className="p-4 text-lg font-semibold border-b border-gray-700 flex justify-between items-center">
+    <div className="w-56 bg-green-100 text-black flex flex-col duration-150 h-full sticky top-0">
+      <div className="p-4 text-sm font-semibold border-b border-gray-700 flex justify-between items-center">
         RK Realtors & Consultants
         <button
-          className="text-gray-400 hover:text-gray-200"
+          className="text-gray-400 hover:text-gray-600 px-3"
           onClick={() => setIsSidebarOpen(false)}
         >
           ✕
@@ -68,37 +71,37 @@ const Sidebar = ({ setSelectedPage, setIsSidebarOpen }) => {
       <nav className="flex-1">
         <ul className="space-y-2 p-4">
           <li
-            className="hover:bg-gray-700 p-2 rounded cursor-pointer"
+            className="hover:bg-green-200 p-2 rounded cursor-pointer"
             onClick={() => setSelectedPage(0)}
           >
             Stats
           </li>
           <li
-            className="hover:bg-gray-700 p-2 rounded cursor-pointer"
+            className="hover:bg-green-200 p-2 rounded cursor-pointer"
             onClick={() => setSelectedPage(1)}
           >
             Services
           </li>
           <li
-            className="hover:bg-gray-700 p-2 rounded cursor-pointer"
+            className="hover:bg-green-200 p-2 rounded cursor-pointer"
             onClick={() => setSelectedPage(2)}
           >
             Projects
           </li>
           <li
-            className="hover:bg-gray-700 p-2 rounded cursor-pointer"
+            className="hover:bg-green-200 p-2 rounded cursor-pointer"
             onClick={() => setSelectedPage(3)}
           >
             General Settings
           </li>
         </ul>
       </nav>
-      <div className="p-4 border-t border-gray-700 duration-150">
+      <div className="p-4 border-t border-green-700 duration-150">
         <button
           className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded w-full"
           onClick={() => {
             localStorage.removeItem('authToken');
-            setSelectedPage(0); // Reset to Stats on logout
+            navigate('/admin/login');
           }}
         >
           Logout

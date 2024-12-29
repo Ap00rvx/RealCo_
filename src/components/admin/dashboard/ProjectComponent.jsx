@@ -42,6 +42,7 @@ function AdminProjectsComponent() {
     });
     setError(null); // Reset error state to null after showing the toast
   };
+
   const handleFileUpload = async (file) => {
     if (!file) return null;
 
@@ -58,76 +59,74 @@ function AdminProjectsComponent() {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response.data.url); 
+      console.log(response.data.url);
       return response.data.url;
     } catch (error) {
       console.error('Error uploading file:', error);
       setError('File upload failed.');
+      toast.error('File upload failed. Please try again.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
       return null;
     }
   };
+
   // Add new project
   const handleNewProject = async (data) => {
     try {
-       
-        if(data.brochure == null){
-            data.brochure = ""; 
-        }
-        if(data.image == null){
-            data.image = ""; 
-        }
-        if(data.image) {
-            const response = await handleFileUpload(data.image);
-            console.log(response);  
-            data.image = response; 
-        }
-        if(data.brochure) {
-            const response = await handleFileUpload(data.brochure); 
-            console.log(response);  
-            data.brochure = response; 
-        }
-        
-        const token = localStorage.getItem("authToken"); 
+      // File upload logic
+      if (data.image) {
+        const response = await handleFileUpload(data.image);
+        console.log(response);
+        data.image = response;
+      }
+      if (data.brochure) {
+        const response = await handleFileUpload(data.brochure);
+        console.log(response);
+        data.brochure = response;
+      }
+
+      const token = localStorage.getItem("authToken");
       const response = await axios.post(url + 'create', data, {
         headers: {
           Authorization: token,
         },
       });
-      setProjects([...projects,response.data.project]);
+
+      setProjects([...projects, response.data.project]);
       setNewPopupOpen(false);
       toast.success('Project added successfully!');
     } catch (error) {
       console.error('Error adding project:', error);
-      handleError('Failed to add project.');
+      setLoading(false);
+      toast.error('Failed to add project. Please try again.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
     }
   };
 
-  // Update project
   const handleUpdateProject = async (data, id) => {
-    if(data.brochure == null){
-        data.brochure = ""; 
+    if (data.image) {
+      const response = await handleFileUpload(data.image);
+      console.log(response);
+      data.image = response;
     }
-    if(data.image == null){
-        data.image = ""; 
+    if (data.brochure) {
+      const response = await handleFileUpload(data.brochure);
+      console.log(response);
+      data.brochure = response;
     }
-    if(data.image) {
-        const response = await handleFileUpload(data.image);
-        console.log(response);  
-        data.image = response; 
-    }
-    if(data.brochure) {
-        const response = await handleFileUpload(data.brochure); 
-        console.log(response);  
-        data.brochure = response; 
-    }
+
     try {
-        console.log(data); 
       const token = localStorage.getItem('authToken');
-      await axios.post(`${url}${id}`, data, {
+      const res = await axios.post(`${url}${id}`, data, {
         headers: {
           Authorization: token,
         },
       });
+
       setProjects(
         projects.map((project) =>
           project._id === id ? { ...project, ...data } : project
@@ -137,8 +136,14 @@ function AdminProjectsComponent() {
       toast.success('Project updated successfully!');
     } catch (error) {
       console.error('Error updating project:', error);
-      handleError('Failed to update project.');
+      setLoading(false);
+      toast.error('Failed to update project. Please try again.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
     }
+    setButtonLoading(false);
+    setSelectedId(null);
   };
 
   // Delete project
@@ -155,7 +160,10 @@ function AdminProjectsComponent() {
       toast.success('Project deleted successfully!');
     } catch (error) {
       console.error('Error deleting project:', error);
-      handleError('Failed to delete project.');
+      toast.error('Failed to delete project. Please try again.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
     }
     setButtonLoading(false);
   };
@@ -194,7 +202,7 @@ function AdminProjectsComponent() {
           >
             <p className="text-sm font-bold text-white p-1">Add New Project </p>
           </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
           {projects.map((project) => (
             <div
               key={project._id}
@@ -207,9 +215,9 @@ function AdminProjectsComponent() {
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
               )}
-              {
-                project.brochure != "" &&(<a href={project.brochure} target="_blank" className="text-blue-600 underline">View Brochure</a>)
-              }
+              {project.brochure && (
+                <a href={project.brochure} target="_blank" className="text-blue-600 underline">View Brochure</a>
+              )}
               <h5 className="text-lg font-bold text-black">{project.title}</h5>
               <p className="text-sm text-gray-700 mb-2">
                 {project.description.length > 40
@@ -218,7 +226,7 @@ function AdminProjectsComponent() {
               </p>
               <p className="text-xs text-gray-500">Status: {project.status}</p>
               <p className="text-xs text-gray-500">
-            Created at: {new Date(project.startDate).toLocaleString()}
+                Created at: {new Date(project.startDate).toLocaleString()}
               </p>
               <div className="flex justify-end mt-4 gap-2">
                 <button
@@ -240,7 +248,6 @@ function AdminProjectsComponent() {
               </div>
             </div>
           ))}
-          
         </div>
       </section>
 

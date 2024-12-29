@@ -7,6 +7,7 @@ import PrivateRoute from "./components/privateComponent";
 import AdminDashBoard from "./pages/admin/adminDashboard";
 import AboutUs from "./pages/AboutusPage";
 import Page404 from "./pages/404Page";
+import ProjectPages from "./pages/ProjectPages";
 
 
 
@@ -30,6 +31,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/projects" element={<ProjectPages />} />
         {/* Route for 404 */}
         <Route path="*" element={<Page404 />} />
       </Routes>

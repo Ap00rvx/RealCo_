@@ -1,46 +1,35 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function FooterComponent() {
+function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
 
-    const [email, setEmail] = useState('');
-
+  
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission
     console.log(email); // Print the email to the console
   };
   return (
-    
-
 <footer className="bg-white">
-  <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8 ">
-    <div className="grid grid-cols-1 gap-80 lg:grid-cols-3 ">
+  <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        <div className="text-teal-600">
-          <img src="/new_logo.svg" alt=" logo" className="max-h-24  "/>
+        <div className="flex justify-center text-teal-600 sm:justify-start">
+          <img src={logo} alt="" className="max-h-32" />
         </div>
 
-        <p className="mt-4 max-w-xs text-gray-500">
-        B 102 Sen Nagar Santacruz East , Mumbai - 400055 
+        <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+          {address}
         </p>
-        <p className="mt-0 max-w-xs text-gray-500">
-        <a href="mailto:connect@rktaxrealtors.com" title="connect@rktaxrealtors.com">connect@rktaxrealtors.com</a>
-        </p>
-        <a href="tel:+917715021942" title="+91 771 502 1942" className="mt-4 max-w-xs text-gray-500">+91 771 502 1942</a><br/>
-                        <a href="tel:+919820612409" title="+91 982 061 2409"className="mt-4 max-w-xs text-gray-500">+91 982 061 2409</a>
-          <br />
-                        <a className="mt-4 max-w-xs text-gray-500">RERA License No - <b>A51800000949</b></a>
 
-        <ul className="mt-8 flex gap-6">
+        <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
           <li>
             <a
-              href="https://www.facebook.com/people/RK-Realtors-Consultants/61553086431936/"
+              href={fb}
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:opacity-75 hover:text-blue-500"
+              className="text-teal-700 transition hover:text-teal-700/75"
             >
               <span className="sr-only">Facebook</span>
-
               <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fillRule="evenodd"
@@ -53,13 +42,12 @@ function FooterComponent() {
 
           <li>
             <a
-              href="https://www.instagram.com/rkrealtors.consultancies?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"
+              href={insta}
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:opacity-75 hover:text-red-500"
+              className="text-teal-700 transition hover:text-teal-700/75"
             >
               <span className="sr-only">Instagram</span>
-
               <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fillRule="evenodd"
@@ -72,91 +60,217 @@ function FooterComponent() {
 
           <li>
             <a
-              href="https://www.linkedin.com/company/rk-realtors-and-tax-consultants/about/"
+              href={linkedin}
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:opacity-95  hover:text-blue-900"
+              className="text-teal-700 transition hover:text-teal-700/75"
             >
-              <span className="sr-only">LinkedIn</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-linkedin" viewBox="0 0 16 16">
+              <span className="sr-only ">Twitter</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-linkedin size-6" viewBox="0 0 16 16">
   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
 </svg>
             </a>
           </li>
+
+         
         </ul>
       </div>
-      
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
-      <div>
-          <p className="font-medium text-gray-900">Quick Links</p>
 
-          <ul className="mt-6 space-y-4 text-sm text-gray-500">
-        
-                        <Link to={"/"}><li><a className="text-medium" href="">Home</a></li> </Link>
-                        <Link to={"/services"}><li><a className="text-medium" href="">Services</a></li> </Link>
-                        <Link to={"/projects"}><li><a className="text-medium" href="">Projects</a></li> </Link>
-                        <Link to={"/about"}><li><a className="text-medium" href="">About us</a></li> </Link>
-                        <Link to={"/contact"}><li><a className="text-medium" href="">Contact us</a></li> </Link>
-                     
-                    </ul>
-        
-        </div>
-        <div>
-          <p className="font-medium text-gray-900">Services</p>
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
+        <div className="text-center sm:text-left">
+          <p className="text-lg font-medium text-gray-900">About Us</p>
 
-          <ul className="mt-6 space-y-4 text-sm">
+          <ul className="mt-8 space-y-4 text-sm">
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Intellectual Property Rights (IPR)</a>
+              <a className="text-gray-700 transition hover:text-gray-700/75" href="/about">
+                Company History
+              </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Start a Business</a>
+              <a className="text-gray-700 transition hover:text-gray-700/75" href="/about">
+               Clients
+              </a>
             </li>
 
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> ISO Certifications  </a>
-            </li>
 
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75">Entity Conversions </a>
-            </li>
-
-            <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> View All Services</a>
-            </li>
+           
           </ul>
         </div>
 
-       
+        <div className="text-center sm:text-left">
+          <p className="text-lg font-medium text-gray-900">Our Services</p>
 
-        <div>
-          <p className="font-medium text-gray-900">Helpful Links</p>
+          <ul className="mt-8 space-y-4 text-sm">
+            <li>
+              <a className="text-gray-700 transition hover:text-gray-700/75" href="/services">
+                Start Business
+              </a>
+            </li>
 
-          <ul className="mt-6 space-y-4 text-sm text-gray-900 ">
-          <li><a className="text-medium hover:text-gray-700 hover:opacity-75" href="https://www.gst.gov.in/" target="_blank">www.gst.gov.in</a></li>
-                        <li><a className="text-medium  hover:text-gray-700 hover:opacity-75" href="http://www.mca.gov.in/" target="_blank">www.mca.gov.in</a></li>
-                        <li><a className="text-medium  hover:text-gray-700 hover:opacity-75" href="https://www.icai.org/" target="_blank">www.icai.org</a></li>
-                        <li><a className="text-medium  hover:text-gray-700 hover:opacity-75" href="https://www.icsi.edu/home/" target="_blank">www.icsi.edu</a></li>
-                        <li><a className="text-medium  hover:text-gray-700 hover:opacity-75" href="https://www.rbi.org.in/" target="_blank">www.rbi.org.in</a></li>
-                        <li><a className="text-medium  hover:text-gray-700 hover:opacity-75" href="https://dgft.gov.in/" target="_blank">www.dgft.gov.in</a></li>
+            <li>
+              <a className="text-gray-700 transition hover:text-gray-700/75" href="/services"> Intellectual Property Rights  </a>
+            </li>
+
+            <li>
+              <a className="text-gray-700 transition hover:text-gray-700/75" href="/services"> Specialized Entity Registration. </a>
+            </li>
+            <li>
+              <a className="text-gray-700 transition hover:text-gray-700/75" href="/services"> All Services </a>
+            </li>
+
+            
           </ul>
         </div>
 
-        
+        <div className="col-md-3 col-sm-6 col-xs-12 widget padding-45px-left sm-padding-15px-left xs-text-center">
+  <div className=" text-semibold text-center sm:text-left text-lg font-medium text-gray-900">
+    Useful Links
+  </div>
+  <ul className="mt-8 space-y-4 text-sm text-black">
+    <li>
+      <a className="text-medium" href="https://www.gst.gov.in/" target="_blank" rel="noopener noreferrer">
+        www.gst.gov.in
+      </a>
+    </li>
+    <li>
+      <a className="text-medium" href="http://www.mca.gov.in/" target="_blank" rel="noopener noreferrer">
+        www.mca.gov.in
+      </a>
+    </li>
+    <li>
+      <a className="text-medium" href="https://www.icai.org/" target="_blank" rel="noopener noreferrer">
+        www.icai.org
+      </a>
+    </li>
+    <li>
+      <a className="text-medium" href="https://www.icsi.edu/home/" target="_blank" rel="noopener noreferrer">
+        www.icsi.edu
+      </a>
+    </li>
+    <li>
+      <a className="text-medium" href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">
+        www.rbi.org.in
+      </a>
+    </li>
+    <li>
+      <a className="text-medium" href="https://dgft.gov.in/" target="_blank" rel="noopener noreferrer">
+        www.dgft.gov.in
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        <div className="text-center sm:text-left">
+          <p className="text-lg font-medium text-gray-900">Contact Us</p>
+
+          <ul className="mt-8 space-y-4 text-sm">
+            <li>
+              <a
+                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                href="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5 shrink-0 text-gray-900"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+
+                <span className="flex-1 text-gray-700">{email}</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                href="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5 shrink-0 text-gray-900"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+
+                <span className="flex-1 text-gray-700">{phone}</span>
+              </a>
+            </li>
+
+            <li
+              className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="size-5 shrink-0 text-gray-900"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+
+              <address className="-mt-0.5 flex-1 not-italic text-gray-700">
+                {address}
+              </address>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div className="flex justify-between items-center">
-    <div>
-          {/* // terms about privacy policy */}
-          <p className="font-medium text-gray-500 text-xs cursor-pointer">Terms & Policies</p>
 
-        </div>
-    <p className="text-xs text-gray-500">&copy; 2023. RK Realtors & Consultants . All rights reserved.</p>
-    <a href="https://valenceware.com/" className="text-xs text-gray-500">Developed & maintained by Valenceware</a>
+    <div className="mt-12 border-t border-gray-100 pt-6">
+      <div className="text-center sm:flex sm:justify-between sm:text-left">
+        <p className="text-sm text-gray-500">
+          <span className="block sm:inline">All rights reserved.</span>
 
+          <a
+            className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+            href="#"
+          >
+            Terms & Conditions
+          </a>
+
+          <span>&middot;</span>
+
+          <a
+            className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+            href="#"
+          >
+            Privacy Policy
+          </a>
+        </p>
+
+        <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">&copy; 2023.RK Realtors and Consultants </p>
+      </div>
     </div>
-
-    
   </div>
 </footer>
   )

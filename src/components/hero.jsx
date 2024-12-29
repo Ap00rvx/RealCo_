@@ -6,7 +6,7 @@ const navItems = [
   
   { label: 'Home', href: '#' },
   { label: 'About', href: '#about' },
-  {label: 'Projects', href: '#'},
+  {label: 'Projects', href: '/projects'},
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#footer' },
 ];
@@ -106,15 +106,7 @@ return (
                     fadeIn('up', 0.2)
                     } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}className="max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-6xl text-black text-semibold ">{text[currentImageIndex]} </motion.p>
                     
-                    
-                    
-                   
-                    
-                    
-                    
-                    
-                    
-                    
+
                     <motion.p  variants={
                     fadeIn('up', 0.4)
                     } initial="hidden" whileInView={"show"}viewport={{once: true,amount:0.1 }}className="max-w-2xl mb-6 font-normal lg:mb-8 md:text-lg lg:text-xl  text-gray-400">RK Realtors & Tax Consultants provide a comprehensive solution for all your real estate and business consulting needs. </motion.p>

@@ -18,7 +18,7 @@ function UpdateProjectPopup({ isOpen, onClose, onSubmit, projectData, id }) {
         startDate: projectData.startDate ? projectData.startDate.split('.')[0] : '',
         status: projectData.status || '',
         brochure: projectData.brochure || null,
-        image: null,
+        image: projectData.image || null,
       });
     }
   }, [projectData]);
@@ -37,7 +37,7 @@ function UpdateProjectPopup({ isOpen, onClose, onSubmit, projectData, id }) {
     
 
     await onSubmit(formData, id);
-    setIsLoading(true); 
+    setIsLoading(false); 
   };
 
   if (!isOpen) return null;
