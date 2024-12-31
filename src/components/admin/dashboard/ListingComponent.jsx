@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewListingPopup from '../../utils/NewListingPopUp';
-import UpdateListingPopup from '../../utils/UpdateListingPopup';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import UpdateListingPopup from '../../utils/UpdateListingPopUp';
 
 function ListingComponent() {
     const [listings, setListings] = useState([]);
@@ -55,7 +55,7 @@ function ListingComponent() {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            console.log(response.data.url); 
+            // console.log(response.data.url); 
             return response.data.url;
         } catch (error) {
             toast.error(`Image upload failed: ${error.message}`);
@@ -98,6 +98,7 @@ function ListingComponent() {
                 },
             });
 
+
             toast.success("Listing added successfully!");
             setIsNewPopupOpen(false);
             getAllListings();
@@ -112,7 +113,7 @@ function ListingComponent() {
             const token = localStorage.getItem('authToken');
 
             let  images = formData.images;
-            console.log(formData); 
+            // console.log(formData); 
             if(formData.newImages.length > 0){
                 const newImageUrls = [];
                 for (let i = 0; i < formData.newImages.length; i++) {
