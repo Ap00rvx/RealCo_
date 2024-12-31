@@ -241,6 +241,12 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
                 {address}
               </address>
             </li>
+            <li>
+            <a
+                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end bg-green-300 hover:bg-green-500 p-2 rounded-2xl"
+                href="mailto:info@rkrealco.com"
+              > Contact us </a>
+            </li>
           </ul>
         </div>
       </div>

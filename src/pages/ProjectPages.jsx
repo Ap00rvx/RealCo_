@@ -1,13 +1,22 @@
 import axios from 'axios';
 import { useState,useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 function ProjectPages() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [listings , setListings] = useState([]);
+    
     const getProjects = async () => {
         const url = import.meta.env.VITE_BASE_URL + '/api/project/';
+        const listingsUrl = import.meta.env.VITE_BASE_URL + '/api/listing/';
         try {
             
             const response = await axios.get(url);
+            const listingResponse = await axios.get(listingsUrl);
+            setListings(listingResponse.data.listings);
             setProjects(response.data.projects);
         } catch (error) {
             console.error(error);
@@ -73,6 +82,20 @@ function ProjectPages() {
             ))}
         </div>
         </div>
+        <header className=" text-black bg-white p-6 text-center ">
+        <div className="container mx-auto">
+          
+          <h1 className="text-4xl font-bold">Welcome to Our Listings Sections</h1>
+          <p className="text-lg mt-2">Discover the amazing Listings</p>
+        </div>
+      </header>
+      <div className="justify-center items-center flex mx-auto bg-white min-h-screen">
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 ">
+            {listings.map((listing) => (
+                <ListingCard key={listing._id} listing={listing} />
+            ))}
+        </div>
+        </div>
         </>
     )
 }
@@ -115,3 +138,47 @@ function ProjectCard(project) {
 </article>
     );
 }
+
+
+function ListingCard({ listing }) {
+    return (
+        <article className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm max-w-md">
+            {/* Slidable Image Section */}
+            {listing.images && listing.images.length > 0 ? (
+                <Swiper navigation modules={[Navigation]} className="w-full h-56">
+                    {listing.images.map((image, index) => (
+                        <SwiperSlide key={index}>
+                            <img
+                                alt={`Listing image ${index + 1}`}
+                                src={image}
+                                className="w-full h-56 object-cover"
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            ) : (
+                <img
+                    alt="No image available"
+                    src="/new_logo_bg.png" // fallback image if no images exist
+                    className="w-full h-56 object-cover"
+                />
+            )}
+
+            <div className="p-4 sm:p-6">
+                <a href="#">
+                    <h3 className="text-lg font-medium text-gray-900">{listing.title}</h3>
+                </a>
+
+                <p className="mt-2 text-sm text-gray-500">
+                    {listing.description.length > 100
+                        ? `${listing.description.substring(0, 100)}...`
+                        : listing.description}
+                </p>
+
+                
+            </div>
+        </article>
+    );
+}
+
+

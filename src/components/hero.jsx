@@ -8,7 +8,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   {label: 'Projects/Listings', href: '/projects'},
   { label: 'Services', href: '#services' },
-  { label: 'Contact', href: '#footer' },
+  { label: 'Contact', href: 'mailto:info@rkrealco.com' },
 ];
 export const HeroSection = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -113,7 +113,7 @@ return (
                 
                     <motion.a  variants={
                     fadeIn('up', 0.4)
-                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }} href="#" className=  {` ${currentImageIndex == 0 ? "block":"hidden"}  inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-green-300 border border-green-300 hover:bg-green-400 duration-150  hover:shadow-lg focus:ring-4 focus:ring-primary-300`}>
+                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }} href="#services" className=  {` ${currentImageIndex == 0 ? "block":"hidden"}  inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-green-300 border border-green-300 hover:bg-green-400 duration-150  hover:shadow-lg focus:ring-4 focus:ring-primary-300`}>
                         Get started
                         <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </motion.a>
