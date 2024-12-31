@@ -6,7 +6,7 @@ const navItems = [
   
   { label: 'Home', href: '#' },
   { label: 'About', href: '#about' },
-  {label: 'Projects', href: '/projects'},
+  {label: 'Projects/Listings', href: '/projects'},
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#footer' },
 ];
@@ -51,7 +51,7 @@ return (
                    
                     {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
                 </div>
-                <div className="hidden md:flex  min-[1200px]:space-x-16 min-[1025px]:space-x-10 min-[1100px]:space-x-12 space-x-8 pr-4">
+                <div className="hidden md:flex  min-[1200px]:space-x-12 min-[1025px]:space-x-6 min-[1100px]:space-x-10 space-x-8 pr-4">
                     {navItems.map((item) => (
                         <div key={item.label} className="relative group">
                             <a href={item.href} className="  md:text-black md:hover:text-green-950 lg:text-white lg:hover:text-white text-gray-200 hover:text-white font-medium">

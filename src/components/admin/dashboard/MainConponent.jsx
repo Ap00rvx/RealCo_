@@ -5,6 +5,8 @@ import ServicesComponent from './ServicesComponent';
 import AdminProjectsComponent from './ProjectComponent';
 import { useNavigate } from 'react-router-dom';
 import GeneralSettings from './GeneralSettings';
+import ListingComponent from './ListingComponent';
+// import UserSettingsComponent from '../dashboard/UserSetitingsComponent';
 
 function MainComponent() {
   const [userName, setUserName] = useState('');
@@ -33,8 +35,11 @@ function MainComponent() {
         return <ServicesComponent />;
       case 2:
         return <AdminProjectsComponent/>;
-      default:
-        return <GeneralSettings/> ; 
+      case 3: 
+        return <ListingComponent/>
+     
+      default: 
+        return  <GeneralSettings/> ; 
     }
   };
 
@@ -92,8 +97,15 @@ const Sidebar = ({ setSelectedPage, setIsSidebarOpen }) => {
             className="hover:bg-green-200 p-2 rounded cursor-pointer"
             onClick={() => setSelectedPage(3)}
           >
+           Listings
+          </li>
+          <li
+            className="hover:bg-green-200 p-2 rounded cursor-pointer"
+            onClick={() => setSelectedPage(4)}
+          >
             General Settings
           </li>
+        
         </ul>
       </nav>
       <div className="p-4 border-t border-green-700 duration-150">
