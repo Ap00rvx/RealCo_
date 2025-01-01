@@ -27,7 +27,7 @@ function HomePage() {
   },[]); 
   return (
     <>
-     <HeroSection/>
+     <HeroSection logo={general.logo}/>
     <WhyChooseUs about={general.about}/>
     <OurClients/>
     <Services/>

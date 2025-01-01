@@ -9,18 +9,18 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
     console.log(email); // Print the email to the console
   };
   return (
-<footer className="bg-white">
-  <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+<footer className="bg-white h-auto ">
+  <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-1 sm:px-6 lg:px-8 lg:pt-5">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        <div className="flex justify-center text-teal-600 sm:justify-start">
-          <img src={logo} alt="" className="max-h-32" />
+        <div className="flex-col justify-center text-teal-600 sm:justify-start">
+          <img src={logo} alt="" className="max-h-32 w-40" />
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.231233305461!2d72.83817697528373!3d19.085788282120845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c6e7802383%3A0x99bd638ce39dd513!2sR.K%20REALTORS%20%26%20CONSULTANTS!5e1!3m2!1sen!2sin!4v1735713657943!5m2!1sen!2sin"allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-48 border border-green-500 rounded-xl"></iframe>
+        
         </div>
 
-        <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-          {address}
-        </p>
-
+        
         <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
           <li>
             <a
@@ -81,7 +81,7 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
           <p className="text-lg font-medium text-gray-900">About Us</p>
 
           <ul className="mt-8 space-y-4 text-sm">
-            <li>
+            <li >
               <a className="text-gray-700 transition hover:text-gray-700/75" href="/about">
                 Company History
               </a>
@@ -92,6 +92,7 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
                Clients
               </a>
             </li>
+            
 
 
            
@@ -254,6 +255,7 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
 
     <div className="mt-12 border-t border-gray-100 pt-6">
       <div className="text-center sm:flex sm:justify-between sm:text-left">
+        
         <p className="text-sm text-gray-500">
           <span className="block sm:inline">All rights reserved.</span>
 
@@ -275,6 +277,7 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
         </p>
 
         <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">&copy; 2023.RK Realtors and Consultants </p>
+        <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">Managed by Valenceware</p>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ const navItems = [
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: 'mailto:info@rkrealco.com' },
 ];
-export const HeroSection = () => {
+export const HeroSection = ({logo}) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
     const images = [
@@ -43,17 +43,19 @@ export const HeroSection = () => {
      
     
 return (
-    <><div className="absolute bg-transparent shadow-none w-full z-10 top-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+
+    <div className="absolute bg-transparent shadow-none w-full z-10 top-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5">
             <div className="flex justify-between h-16 items-center">
                 <div className="flex items-center">
-                    <img src="/new_logo_bg.png" alt=""className=" md:max-h-24 lg:max-h-56  max-h-20 overflow-y-hidden lg:mt-2 " />
+                    <img src= {logo} alt=""className=" md:max-h-24 lg:max-h-56  max-h-20 overflow-y-hidden lg:mt-5" />
                    
                     {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
                 </div>
-                <div className="hidden md:flex  min-[1200px]:space-x-12 min-[1025px]:space-x-6 min-[1100px]:space-x-10 space-x-8 pr-4">
+                <div className="hidden md:flex  min-[1200px]:space-x-8 min-[1025px]:space-x-3.5 min-[1100px]:space-x-6 space-x-8 ">
                     {navItems.map((item) => (
-                        <div key={item.label} className="relative group">
+                        <div key={item.label} className="relative group justify-center items-center">
                             <a href={item.href} className="  md:text-black md:hover:text-green-950 lg:text-white lg:hover:text-white text-gray-200 hover:text-white font-medium">
                                 {item.label}
                             </a>
@@ -61,7 +63,11 @@ return (
                             <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-white group-hover:w-3/6"></span>
                         </div>
                     ))}
+                    <div className="bg-green-300 hover:bg-green-600  text-gray-600 hover:text-white duration-150 ease-in rounded-md px-2 py-0.5">
+                        <a href="">Form</a>
+                    </div>
                 </div>
+
                 <div className="md:hidden">
                     <button
                         onClick={toggleMenu}
@@ -85,6 +91,9 @@ return (
                             {item.label}
                         </a>
                     ))}
+                    <div className="bg-green-200 hover:bg-green-500  text-gray-600 hover:text-white duration-150 ease-in rounded-lg px-2">
+                        <a href="">Form</a>
+                    </div>
                 </div>
             </div>
         )}
