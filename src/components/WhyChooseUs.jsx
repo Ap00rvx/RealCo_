@@ -7,8 +7,8 @@ const WhyChooseUs = ({about}) => {
     <motion.div variants={
                     fadeIn('right', 0.1)
                     } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.01 }} className="grid grid-cols-2 gap-4 mt-8">
-            <img className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"/>
-            <img className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"/>
+            <img className="w-full rounded-lg h-[calc(100vh-378px)] object-cover" src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="office content 1"/>
+            <img className="mt-4 w-full lg:mt-10 rounded-lg h-[calc(100vh-378px)] object-cover" src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1506&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="office content 2"/>
         </motion.div>
         <motion.div variants={
                     fadeIn('left', 0.1)

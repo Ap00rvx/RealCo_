@@ -14,8 +14,8 @@ export const HeroSection = ({logo}) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
     const images = [
-        "/slider-img-01.jpg",
         "/slider-img-02.jpg",
+        "/slider-img-01.jpg",
         "/slider-img-03.jpg", // Add your image paths here
         "/slider-img-04.jpg", 
       ];
@@ -53,9 +53,9 @@ return (
                    
                     {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
                 </div>
-                <div className="hidden md:flex  min-[1200px]:space-x-8 min-[1025px]:space-x-3.5 min-[1100px]:space-x-6 space-x-8 ">
+                <div className="hidden md:flex  min-[1200px]:space-x-8 min-[1025px]:space-x-3.5 min-[1100px]:space-x-7 space-x-8 ">
                     {navItems.map((item) => (
-                        <div key={item.label} className="relative group justify-center items-center">
+                        <div key={item.label} className="relative group justify-center items-center text-sm min-[1025px]:text-xs ">
                             <a href={item.href} className="  md:text-black md:hover:text-green-950 lg:text-white lg:hover:text-white text-gray-200 hover:text-white font-medium">
                                 {item.label}
                             </a>
@@ -63,8 +63,8 @@ return (
                             <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-white group-hover:w-3/6"></span>
                         </div>
                     ))}
-                    <div className="bg-green-300 hover:bg-green-600  text-gray-600 hover:text-white duration-150 ease-in rounded-md px-2 py-0.5">
-                        <a href="">Form</a>
+                    <div className="bg-green-300 hover:bg-green-600  text-gray-600 hover:text-white duration-150 ease-in rounded-md px-2 py-0.5 text-xs">
+                        <a href="">List Your Property</a>
                     </div>
                 </div>
 
@@ -91,8 +91,8 @@ return (
                             {item.label}
                         </a>
                     ))}
-                    <div className="bg-green-200 hover:bg-green-500  text-gray-600 hover:text-white duration-150 ease-in rounded-lg px-2">
-                        <a href="">Form</a>
+                    <div className="bg-green-200 hover:bg-green-500  text-gray-600 hover:text-white duration-150 ease-in rounded-lg px-2 text-sm">
+                        <a href="">List Your Property</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ return (
                         <img
                             src={images[currentImageIndex]}
                             alt="mockup"
-                            className="object-cover w-full h-full"
+                            className="object-cover w-[100vh] h-screen overflow-y-hidden"
                         />
                     </div>
                 </motion.div>
