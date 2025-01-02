@@ -49,7 +49,7 @@ return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1.5 lg:pr-7">
             <div className="flex justify-between h-16 items-center">
                 <div className="flex items-center">
-                    <img src= {logo} alt=""className=" md:max-h-24 lg:max-h-60  max-h-20 overflow-y-hidden lg:mt-9  "/>
+                    <img src= {logo} alt=""className=" md:max-h-24 lg:max-h-60  max-h-20 overflow-y-hidden lg:mt-9 invert "/>
                     
                    
                     {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
@@ -100,7 +100,7 @@ return (
         )}
     </div>
     
-    <section className="bg-white min-[100px]:pt-14  min-[400px]:pt-0">
+    <section className="bg-gray-950 min-[100px]:pt-14  min-[400px]:pt-0">
             <div className=" grid max-w-screen-xl px-1 mx-auto lg:gap-4 xl:gap-0  lg:grid-cols-12 max-h-screen lg:h-screen lg:py-0 md:pt-10 min-[300px]:pt-12">
                
             
@@ -114,7 +114,7 @@ return (
 
                     <motion.p  variants={
                     fadeIn('up', 0.2)
-                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}className="max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-6xl text-black text-semibold ">{text[currentImageIndex]} </motion.p>
+                    } initial="hidden" whileInView={"show"}viewport={{once:true,amount:0.1 }}className="max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-6xl text-white text-semibold ">{text[currentImageIndex]} </motion.p>
                     
 
                     <motion.p  variants={

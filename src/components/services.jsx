@@ -22,9 +22,9 @@ const Services = () => {
   },[])
 
   return (
-    <section className="p-8 bg-white" id="services">
-        <div className="text-black font-semibold justify-center items-center flex text-3xl ">What We Offer</div>
-        <div className=" text-gray-500 font-normal justify-center items-center flex text-light mb-10 text-center ">Empowering you with innovative solutions, tailored to exceed your expectations!</div>
+    <section className="p-8 bg-gray-950" id="services">
+        <div className="text-white font-semibold justify-center items-center flex text-3xl ">What We Offer</div>
+        <div className=" text-gray-400 font-normal justify-center items-center flex text-light mb-10 text-center ">Empowering you with innovative solutions, tailored to exceed your expectations!</div>
  <div className="max-w-screen-xl  px-4  justify-center items-center mx-auto">
         {
   services.slice(0, 3).map((service, index ) => {
