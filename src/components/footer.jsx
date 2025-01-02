@@ -14,7 +14,7 @@ function FooterComponent({address,phone,logo,insta,fb,linkedin,email}) {
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div className="flex-col justify-center text-teal-600 sm:justify-start">
-          <img src={logo} alt="" className="max-h-32 w-40" />
+          <img src={logo} alt="" className="max-h-40 w-56 object-cover scale-105" />
           
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.231233305461!2d72.83817697528373!3d19.085788282120845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c6e7802383%3A0x99bd638ce39dd513!2sR.K%20REALTORS%20%26%20CONSULTANTS!5e1!3m2!1sen!2sin!4v1735713657943!5m2!1sen!2sin"allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-48 border border-green-500 rounded-xl"></iframe>
         

@@ -45,11 +45,12 @@ export const HeroSection = ({logo}) => {
 return (
     <>
 
-    <div className="absolute bg-transparent shadow-none w-full z-10 top-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5">
+    <div className="absolute bg-transparent shadow-none w-full z-10 top-0 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1.5 lg:pr-7">
             <div className="flex justify-between h-16 items-center">
                 <div className="flex items-center">
-                    <img src= {logo} alt=""className=" md:max-h-24 lg:max-h-56  max-h-20 overflow-y-hidden lg:mt-5" />
+                    <img src= {logo} alt=""className=" md:max-h-24 lg:max-h-60  max-h-20 overflow-y-hidden lg:mt-9  "/>
+                    
                    
                     {/* <span className="font-medium text-xl text-black">RK Realtors & Consultants</span> */}
                 </div>
